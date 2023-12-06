@@ -7,7 +7,8 @@ const MenuRouter = require("../myapp/Routes/IngredienteRouter")
 var mongoose = require("mongoose");
  require("dotenv").config();
 app.use(express.json());
-
+var cors = require('cors');
+app.use(cors());
 mongoose.connect(process.env.MONGOOSE_KEY, {
   useNewUrlParser: true,
 });

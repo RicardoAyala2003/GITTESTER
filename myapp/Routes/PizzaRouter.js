@@ -6,5 +6,6 @@ router.post("/create",createPizza.newPizza);
 router.get("/read/:SKU",createPizza.getPizzaBySKU);
 router.put("/update/:SKU",createPizza.updatePizzaBySKU);
 router.get("/delete/:SKU",createPizza.deletePizza);
+router.get("/read",createPizza.getPizzas);
 
 module.exports = router;

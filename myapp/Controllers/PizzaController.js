@@ -55,6 +55,22 @@ const getPizzaBySKU = async (req, res) => {
       res.status(500).json({ error: "Error al obtener la pizza" });
     }
   }
+
+  const getPizzas = async (req, res) => {
+    try {
+      const pizzas = await Pizza.find();
+  
+      if (!pizzas || pizzas.length === 0) {
+        // Si no se encuentran pizzas
+        return res.status(404).json({ error: "No se encontraron pizzas" });
+      }
+  
+      res.status(200).json(pizzas);
+    } catch (error) {
+      res.status(500).json({ error: "Error al obtener las pizzas" });
+    }
+  };
+  
   const updatePizzaBySKU = async (req, res) => {
     const pizzaSKU = req.params.SKU; // Suponiendo que deseas actualizar la pizza por su SKU
   
@@ -89,4 +105,5 @@ module.exports = {
     deletePizza,
     getPizzaBySKU,
     updatePizzaBySKU,
+    getPizzas,
   };
